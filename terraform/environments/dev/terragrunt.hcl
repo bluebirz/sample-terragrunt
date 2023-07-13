@@ -7,6 +7,7 @@ remote_state {
     }
 
     config = {
+        project = "bluebirz-playground"
         bucket = "bluebirz-terragrunt-state-dev"
         location = "europe-west1"
         prefix = "${path_relative_to_include()}/terragrunt.tfstate"
@@ -31,8 +32,8 @@ generate "provider" {
     if_exists = "overwrite_terragrunt"
     contents = <<EOF
 provider "google" {
-    project = ""
-    region  = ""
+    project = "bluebirz-playground"
+    region  = "europe-west1"
 }
 EOF
 }
