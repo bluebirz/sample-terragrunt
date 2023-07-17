@@ -15,16 +15,27 @@ remote_state {
 }
 
 terraform {
-    extra_arguments "bucket" {
-        commands = get_terraform_commands_that_need_vars()
-        optional_var_files = [
-            find_in_parent_folders("environments.tfvars", "ignore")
-        ]
-    }
-    extra_arguments "vars" {
-        commands = ["plan", "apply", "import", "push", "refresh"]
-        arguments = [""]
-    }
+    # extra_arguments "bucket" {
+    #     commands = get_terraform_commands_that_need_vars()
+    #     optional_var_files = [
+    #         find_in_parent_folders("environments.tfvars", "ignore")
+    #     ]
+    # }
+    # extra_arguments "env_vars" {
+    #     commands = [
+    #     "apply",
+    #     "plan",
+    #     "import",
+    #     "push",
+    #     "refresh"
+    #     ]
+
+    #     env_vars = {
+    #         project = "bluebirz-playground"
+    #         region = "europe-west1"
+    #         zone = "europe-west1-b"
+    #     }
+    # }
 }
 
 generate "provider" {
